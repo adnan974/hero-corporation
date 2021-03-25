@@ -1,4 +1,4 @@
-// #iteration_1: code sans architecture, j'ai tout mis sur une seule page.
+// #iteration_1_mise_en_place_systeme_de_route: code sans architecture, j'ai tout mis sur une seule page.
 // Problème: le principe DO ONE THING n'est pas respecté
 
 const express = require('express');
