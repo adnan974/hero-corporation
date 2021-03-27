@@ -1,4 +1,4 @@
-const { getHeroesController, postHeroeController, deleteHeroeController, updateHeroeController} = require('../controllers/heroes.controller');
+const { getHeroesController, postHeroeController, deleteHeroeController, updateHeroeController, addNewMissionToHero, addMissionToHero} = require('../controllers/heroes.controller');
 const express = require('express');
 const router = express.Router();
 
@@ -15,6 +15,14 @@ router
 .route('/:id')
 .delete(deleteHeroeController)
 .patch(updateHeroeController)
+
+router
+.route('/:heroId/missions/')
+.post(addNewMissionToHero)
+
+router
+.route('/:heroId/missions/:missionId')
+.post(addMissionToHero)
 
 
 module.exports = router;

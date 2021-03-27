@@ -1,7 +1,9 @@
 const Heroes = require('../model/schema/hero.schema');
 const Missions = require('../model/schema/mission.schema');
+const { validationResult } = require('express-validator');
 
-async function getHeroesController  (req,res){
+
+async function getHeroesController(req,res){
    
     let heroesList;
 
@@ -19,7 +21,19 @@ async function getHeroesController  (req,res){
     res.status(200).send(heroesList);
 }
 
+
 function postHeroeController(req,res){
+
+    //#Iteration_1_mise_en_place_de_express_validator
+    // Etape 2: 
+    // Cette fonction verifie que les fonctions check appelée precemment ont trouvé des problemes
+    // de validation ou non
+    const errors = validationResult(req)
+    console.log(errors)
+    if (!errors.isEmpty()) {
+        return res.status(422).json({ errors: errors.array() })
+    }
+
 
     Heroes
     .create(req.body)

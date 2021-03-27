@@ -1,7 +1,8 @@
 const Heroes = require('../model/schema/hero.schema');
 const Missions = require('../model/schema/mission.schema');
 
-async function getHeroesController  (req,res){
+
+async function getHeroesController(req,res){
    
     let heroesList;
 
@@ -18,6 +19,7 @@ async function getHeroesController  (req,res){
     
     res.status(200).send(heroesList);
 }
+
 
 function postHeroeController(req,res){
 
